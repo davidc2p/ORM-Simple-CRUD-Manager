@@ -94,8 +94,10 @@ namespace webrickco\model {
 				while ($row = mysql_fetch_assoc($result)) {
 					array_push($arr_fields, $row);
 				}
+				foreach($arr_fields as $key => $val)
+					$arr_fields[$key]['value'] = '';
 			}
-			//print_r($arr_fields);
+			print_r($arr_fields);
 			return $arr_fields;
 		}
 		
@@ -109,6 +111,7 @@ namespace webrickco\model {
 			
 			if (mysql_num_rows($result) > 0) {
 				while ($row = mysql_fetch_assoc($result)) {
+					$row['value'] = '';
 					print_r($row);
 					print '<br/><br/>';
 				}

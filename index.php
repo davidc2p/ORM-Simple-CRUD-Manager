@@ -31,7 +31,7 @@
 	$model->viewFields('cdo_house_pricing');
 	
 	$table1 = new webrickco\model\CRUD($model, 'cdo_house_pricing');
-	$table1->create('cdo_house_pictures');
+	$table1->create('cdo_house_pictures');  
 
 ?>	
 </body>

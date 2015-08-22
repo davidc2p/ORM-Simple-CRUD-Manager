@@ -40,11 +40,13 @@ namespace webrickco\model {
 		{
 			$this->arr_fields = $this->model->getFields($tableName);
 			
+			//creating property with the name of all columns
 			foreach($this->arr_fields as $columns) {
 				if(!property_exists($this, $columns['Field'])) { 
-					$this->$columns['Field'] = '';
+					$this->$columns['Field'] = 'd';
 				}
 			}
+			
 		}
 		
         function create($tableName)
@@ -52,8 +54,20 @@ namespace webrickco\model {
             print 'insert';
 			
 			foreach($this->arr_fields as $columns) {
-				print_r($columns);
+				//print_r($columns);
 			}
+			
+			//var_dump(get_object_vars($this));
+			$obj = get_object_vars($this);
+			while (list($key, $value) = each($obj)) {
+				if ($key != 'arr_fields') {
+					 print_r($obj[$key]);
+					 print "<br/>$key<br/>aaaaaaaaaaaaaa";
+				 }
+			}
+
+
+			
 			print 'qq'.$this->specialeventprice;
         }
     }
